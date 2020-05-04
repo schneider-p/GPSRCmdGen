@@ -189,36 +189,7 @@ namespace RoboCup.AtHome.EGPSRCmdGen
 
 		private static void WriteTaskToFile(StreamWriter writer, Task task, string sTask, int i)
 		{
-			string pad = String.Empty.PadRight(79, '#');
-			writer.WriteLine(pad);
-			writer.WriteLine("#");
-			writer.WriteLine("# Example {0}", i);
-			writer.WriteLine("#");
-			writer.WriteLine(pad);
-			writer.WriteLine();
 			writer.WriteLine(sTask);
-			writer.WriteLine();
-			List<string> remarks = new List<string>();
-			foreach (Token token in task.Tokens)
-			{
-				if (token.Metadata.Count < 1)
-					continue;
-				if (String.IsNullOrEmpty(token.Name))
-					remarks.AddRange(token.Metadata);
-				else
-				{
-					writer.WriteLine("{0}", token.Name);
-					foreach (string md in token.Metadata)
-						writer.WriteLine("\t{0}", md);
-				}
-			}
-			if (remarks.Count > 0)
-			{
-				writer.WriteLine("Remarks");
-				foreach (string r in remarks)
-					writer.WriteLine("\t{0}", r);
-			}
-			writer.WriteLine();
 		}
 
 		private static void GenerateTaskQR(string task, int i, string oDir)
