@@ -182,7 +182,8 @@ namespace RoboCup.AtHome.EGPSRCmdGen
 					sTask = sTask.Substring(0, 1).ToUpper() + sTask.Substring(1);
 
 					WriteTaskToFile(writer, task, sTask, i);
-					GenerateTaskQR(sTask, i, oDir);
+					Console.WriteLine("Generating example {0}.", i);
+					// GenerateTaskQR(sTask, i, oDir);
 				}
 			}
 		}
